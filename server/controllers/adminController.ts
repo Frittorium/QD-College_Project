@@ -23,7 +23,7 @@ export const getAllrestaurants = async (req:AuthRequest, res:Response):Promise<v
 export const approveRestaurant = async (req:AuthRequest, res:Response):Promise<void> => {
     try {
         const {status} = req.body;
-        if(!status || !["approve","rejected","pending"].includes(status)){
+        if(!status || !["approved","rejected","pending"].includes(status)){
             res.status(400).json({message:"Please provide valid approval status"});
             return;
         }
@@ -35,7 +35,7 @@ export const approveRestaurant = async (req:AuthRequest, res:Response):Promise<v
         }
 
         restaurant.status = status;
-        restaurant.save();
+        await restaurant.save();
         res.json(restaurant);
 
     } catch (error:any) {

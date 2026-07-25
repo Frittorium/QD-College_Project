@@ -27,7 +27,7 @@ const seedData = async () => {
         const ownerPassword = await bcrypt.hash("owner123", salt)
 
         //Admin
-        const adminUser = User.create({
+        const adminUser = await User.create({
             name: "Alex Mercer",
             email: "admin@example.com",
             password: adminPassword,
@@ -37,7 +37,7 @@ const seedData = async () => {
         })
 
         //Test User
-        const testUser = User.create({
+        const testUser = await User.create({
             name: "Leroy Jenkins",
             email: "user@test.com",
             password: userPassword,
@@ -47,7 +47,7 @@ const seedData = async () => {
         })
 
         //Test User
-        const ownerUser = User.create({
+        const ownerUser = await User.create({
             name: "Lugigi Mario",
             email: "owner@test.com",
             password: ownerPassword,
