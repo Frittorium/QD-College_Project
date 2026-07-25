@@ -50,6 +50,7 @@ export const createBooking = async (req:AuthRequest, res: Response):Promise<void
             res.status(400).json({
                 message: `Unable to reserve. Only ${availableSeats} seats are available for this time slot.`
             })
+            return;
         }
 
         const booking = await Booking.create({
