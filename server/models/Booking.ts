@@ -32,7 +32,7 @@ const BookingSchema = new Schema<IBooking>(
 //Auto generate reference code on save
 BookingSchema.pre("save", function(){
     if(!this.bookingID){
-        this.bookingID = `GR-${crypto.randomBytes(4).toString("hex").toUpperCase}`
+        this.bookingID = `GR-${crypto.randomBytes(4).toString("hex").toUpperCase()}`
     }
 })
 

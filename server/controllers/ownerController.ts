@@ -11,8 +11,8 @@ const uploadtoCloudinary = (fileBuffer: Buffer):Promise<{secure_url: string}>=> 
             if(error) return reject(error);
             if(!result) return reject(new Error("Upload Failed"));
             resolve({secure_url: result.secure_url})
-            stream.end(fileBuffer)
         })
+        stream.end(fileBuffer);
     })
 }
 
@@ -55,7 +55,7 @@ export const createOwnerRestaurant = async (req:AuthRequest, res:Response):Promi
         const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
 
         const slugExists = await Restaurant.findOne({slug});
-        if(slug){
+        if(slugExists){
             res.status(400).json({message: "A restaurant with this name already exists"});
             return;
         }
@@ -118,7 +118,7 @@ export const updateOwnerRestaurant = async (req:AuthRequest, res:Response):Promi
         if(cuisine) restaurant.cuisine = cuisine;
         if(priceRange) restaurant.priceRange = priceRange;
         if(location) restaurant.location = location;
-        if(address) restaurant.name = address;
+        if(address) restaurant.address = address;
         if(chef) restaurant.chef = chef;
         if(totalSeats) restaurant.totalSeats = totalSeats;
         if(tags){
@@ -193,7 +193,7 @@ export const updateBookingStatus = async (req:AuthRequest, res:Response):Promise
         }
 
         booking.status = status;
-        booking.save();
+        await booking.save();
         res.json(booking);
 
     } catch (error:any) {
