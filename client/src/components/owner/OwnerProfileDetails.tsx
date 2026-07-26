@@ -100,7 +100,9 @@ export default function OwnerProfileDetails({ restaurant, setRestaurant }: Owner
                 }
             })
 
+            setRestaurant(res.data);
             toast.success("Profile details updated successfully!");
+            
         } catch (error: any) {
             toast.error(error?.response?.data?.message || "Update failed");
         } finally {

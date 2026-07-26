@@ -26,6 +26,9 @@ export const registerUser = async (req: Request, res: Response ): Promise<void> 
             return;
         }
 
+        const allowedRoles = ["user", "owner"];
+        const safeRole = allowedRoles.includes(role) ? role : "user";
+
         // Hash password
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
@@ -36,7 +39,7 @@ export const registerUser = async (req: Request, res: Response ): Promise<void> 
             email,
             password: hashedPassword,
             phone,
-            role,
+            role: safeRole,
         })
 
         if (user) {
