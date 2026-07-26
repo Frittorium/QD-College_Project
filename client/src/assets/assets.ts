@@ -3,12 +3,9 @@ import default_restaurant_img from "./default_restaurant_Img.jpeg";
 import membership_section_img from "./membership_section_img.png";
 import {
     CroissantIcon,
-    FishIcon,
     GlobeIcon,
-    LeafIcon,
     MailIcon,
     Share2Icon,
-    UtensilsCrossedIcon,
     Soup,
     Pizza,
     Sprout,
