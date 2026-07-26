@@ -6,8 +6,6 @@ import AuthModal from "../components/AuthModal.tsx";
 import Hero from "../components/home/Hero.tsx";
 import CuisineBrowse from "../components/home/CuisineBrowse.tsx";
 import TrendingRow from "../components/home/TrendingRow.tsx";
-import MembershipSection from "../components/home/MembershipSection.tsx";
-import NewsletterCTA from "../components/home/NewsletterCTA.tsx";
 import api from "../lib/api.ts";
 import toast from "react-hot-toast";
 
@@ -37,8 +35,6 @@ export default function Home() {
                 <Hero />
                 <CuisineBrowse />
                 <TrendingRow trending={trending} loading={loading} />
-                <MembershipSection />
-                <NewsletterCTA />
             </main>
             <Footer />
         </div>
