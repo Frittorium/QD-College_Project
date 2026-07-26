@@ -82,7 +82,7 @@ export default function BookingConfirmation() {
         try {
             setConfirming(true);
             
-            const res = await api.post(`/bookings`,{restaurantId:restaurant._id, date, time: slot, guests, occasion, specialRequests})
+            const res = await api.post(`/bookings`,{restaurantID:restaurant._id, date, time: slot, guests, occasion, specialRequests})
             setConfirmedBooking(res.data);
 
             toast.success("Reservation confirmed!");

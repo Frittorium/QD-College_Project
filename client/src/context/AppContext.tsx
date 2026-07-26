@@ -49,7 +49,7 @@ export const AppContextProvider = ({ children }: Props) => {
             return true;
 
         } catch (error: any) {
-            toast.error(error?.response?.dat?.message || error?.message);
+            toast.error(error?.response?.data?.message || error?.message);
             return false;
         }finally{
             setLoading(false);
