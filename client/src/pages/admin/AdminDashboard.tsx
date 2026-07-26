@@ -9,7 +9,6 @@ import { ShieldCheckIcon, CheckCircleIcon, BarChart3Icon } from "lucide-react";
 // Subcomponents
 import AdminApprovals from "../../components/admin/AdminApprovals.tsx";
 import AdminStats from "../../components/admin/AdminStats.tsx";
-import { dummyAdminStats, dummyRestaurant } from "../../assets/assets.ts";
 import api from "../../lib/api.ts";
 import toast from "react-hot-toast";
 
@@ -39,11 +38,11 @@ export default function AdminDashboard() {
     const handleApproveStatus = async (restaurantId: string, status: "approved" | "rejected") => {
         try {
             setBtnLoading(restaurantId);
-            await api.put(`/admin/restraunts/${restaurantId}/approve`, {status})
+            await api.put(`/admin/restaurants/${restaurantId}/approve`, {status})
             toast.success(`Restraunt marked ${status.toUpperCase()}`)
 
             //Reload local list and stats
-            const restRes = await api.get("/admin/restraunts")
+            const restRes = await api.get("/admin/restaurants")
             setRestaurants(restRes.data)
 
             const statRes = await api.get("/admin/stats")
