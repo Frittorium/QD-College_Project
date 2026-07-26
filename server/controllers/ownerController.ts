@@ -2,6 +2,8 @@ import { Response } from "express";
 import { AuthRequest } from "../middlewares/auth.js";
 import { Restaurant } from "../models/Restaurant.js";
 import { v2 as cloudinary } from "cloudinary";
+cloudinary.config();
+console.log(cloudinary.config())
 import { Booking } from "../models/Booking.js";
 
 //Helper function to upload buffer to Cloudinary 

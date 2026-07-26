@@ -15,7 +15,10 @@ const UserSchema = new Schema<IUser>(
         name: {type: String, required: true, trim: true},
         email: {type: String, required: true, unique: true, trim: true, lowercase: true},
         password: {type: String, required: true, minlength: 6},
-        phone: {type: String, trim: true, minlength: 10},
+        phone: {type: String, trim: true, validate:{
+            validator: (v: string) => !v || v.length >= 10,
+            message: "Number must be at least 10 characters."
+        }},
         role: {type: String, enum: ["user","admin","owner"], default: "user"}, 
     },
     {timestamps: true}
