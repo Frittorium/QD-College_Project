@@ -112,7 +112,7 @@ export default function Search() {
     };
 
     const priceOptions = ["$", "$$", "$$$", "$$$$"];
-    const cuisineOptions = ["Italian", "French", "Japanese", "Steakhouse", "Vegetarian"];
+    const cuisineOptions = ["Italian", "French", "Japanese", "Vegetarian", "Nepali", "Café"];
 
     return (
         <div className="min-h-screen bg-surface flex flex-col pt-20">

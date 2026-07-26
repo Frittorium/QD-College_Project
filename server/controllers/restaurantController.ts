@@ -8,18 +8,24 @@ import { Booking } from "../models/Booking.js";
 // GET /api/restaurants
 export const getRestaurants = async (req:Request, res: Response): Promise<void> => {
     try {
-        const {search, priceRange, rating, location, sort} = req.query;
+        const {search, cuisine, priceRange, rating, location, sort} = req.query;
 
         //Build a query object
         const queryObj:any = {status: "approved"};
         if(search){
             queryObj.$or = [
                 {name: {$regex: search, $options: "i"}},
+                {cuisine: {$regex: search, $options: "i"}},
                 {tags: {$regex: search, $options: "i"}},
                 {location: {$regex: search, $options: "i"}},
             ]
         }
-
+        if(cuisine){
+            const cuisines = Array.isArray(cuisine) ? cuisine : [cuisine];
+            queryObj.cuisine = {
+                $in: cuisines.map((c) => new RegExp(`^${c}$`, "i"))
+            };
+        }
         if(priceRange){
             const prices = Array.isArray(priceRange) ? priceRange : [priceRange];
             queryObj.priceRange = {$in: prices};

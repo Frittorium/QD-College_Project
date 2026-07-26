@@ -2,8 +2,6 @@ import hero_bg_img from "./hero_bg_img.png";
 import default_restaurant_img from "./default_restaurant_Img.jpeg";
 import membership_section_img from "./membership_section_img.png";
 import {
-    BeefIcon,
-    Building2Icon,
     CroissantIcon,
     FishIcon,
     GlobeIcon,
@@ -11,6 +9,11 @@ import {
     MailIcon,
     Share2Icon,
     UtensilsCrossedIcon,
+    Soup,
+    Pizza,
+    Sprout,
+    SunMoon,
+    Coffee,
 } from "lucide-react";
 
 export const assets = {
@@ -81,12 +84,12 @@ export const bottomLinks = [
 ];
 
 export const cuisines = [
-    { name: "Italian", icon: UtensilsCrossedIcon, label: "ITALIAN" },
-    { name: "Japanese", icon: FishIcon, label: "SUSHI" },
+    { name: "Italian", icon: Pizza, label: "ITALIAN" },
+    { name: "Japanese", icon: Soup, label: "JAPANESE" },
     { name: "French", icon: CroissantIcon, label: "FRENCH" },
-    { name: "Rooftop", icon: Building2Icon, label: "ROOFTOP" },
-    { name: "Steakhouse", icon: BeefIcon, label: "STEAKHOUSE" },
-    { name: "Vegetarian", icon: LeafIcon, label: "VEGETARIAN" },
+    { name: "Vegetarian", icon: Sprout, label: "VEGETARIAN" },
+    { name: "Nepali", icon: SunMoon, label: "NEPALI"},
+    { name: "Cafe", icon: Coffee, label: "CAFÉ"}
 ];
 
 export const dummyUser = {
